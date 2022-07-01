@@ -1,0 +1,65 @@
+<form [formGroup]="myForm" class="w-full">
+  <div class="grid auto-rows-auto grid-cols-6 gap-3">
+    <div class="col-span-6">
+      <div class="flex flex-row justify-center">
+        <span class="text-4xl font-bold">Formulario</span>
+      </div>
+    </div>
+    <div class="col-span-3">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstName">
+      </mat-form-field>
+    </div>
+    <div class="col-span-3">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input matInput formControlName="lastName">
+      </mat-form-field>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number" style="-moz-appearance: textfield;">
+      </mat-form-field>
+    </div>
+    <div class="col-span-4">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+    </div>
+    <div class="col-span-6">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Address</mat-label>
+        <textarea matInput placeholder="Ex. 100 Main St" formControlName="address">1600 Amphitheatre Pkwy</textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Country</mat-label>
+        <input matInput placeholder="Ex. San Francisco" formControlName="country">
+      </mat-form-field>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>City</mat-label>
+        <input matInput placeholder="Ex. California" formControlName="city">
+      </mat-form-field>
+    </div>
+    <div class="col-span-2">
+      <mat-form-field class="w-full" appearance="fill">
+        <mat-label>Postal Code</mat-label>
+        <input matInput #postalCode placeholder="Ex. 94105" formControlName="postalCode" type="number"
+          style="-moz-appearance: textfield;">
+        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col-span-6">
+      <div class="flex flex-row justify-around">
+        <button mat-flat-button color="warn" (click)="myForm.reset()">Resetear</button>
+        <button mat-flat-button color="primary" [disabled]="myForm.invalid" (click)="addUser()">Agregar</button>
+      </div>
+    </div>
+  </div>
+</form>
